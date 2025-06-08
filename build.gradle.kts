@@ -22,7 +22,7 @@ repositories {
 	maven { url = URI.create("https://pkgs.dev.azure.com/ModelContextProtocolAI/mcp/_packaging/ModelContextProtocol/maven/v1") }
 }
 
-extra["springAiVersion"] = "1.0.0-SNAPSHOT"
+extra["springAiVersion"] = "1.0.0-M6"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
