@@ -27,9 +27,6 @@ extra["springAiVersion"] = "1.0.0-M6"
 dependencies {
 	implementation("org.springframework.ai:spring-ai-mcp-server-spring-boot-starter:${property("springAiVersion")}")
 
-	compileOnly("org.projectlombok:lombok")
-	annotationProcessor("org.projectlombok:lombok")
-
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
