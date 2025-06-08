@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: mcp-server
+
+  ai:
+    mcp:
+      server:
+        enabled: true
+        stdio: true
+        name: mcp-server
+        version: 1.0.0

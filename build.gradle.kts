@@ -1,3 +1,5 @@
+import java.net.URI
+
 plugins {
 	java
 	id("org.springframework.boot") version "3.5.0"
@@ -15,21 +17,22 @@ java {
 
 repositories {
 	mavenCentral()
+	maven { url = URI.create("https://repo.spring.io/milestone") }
+	maven { url = URI.create("https://repo.spring.io/snapshot") }
+	maven { url = URI.create("https://pkgs.dev.azure.com/ModelContextProtocolAI/mcp/_packaging/ModelContextProtocol/maven/v1") }
 }
 
-extra["springAiVersion"] = "1.0.0"
+extra["springAiVersion"] = "1.0.0-SNAPSHOT"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("org.springframework.ai:spring-ai-starter-model-openai")
+	implementation("org.springframework.ai:spring-ai-mcp-server-spring-boot-starter:${property("springAiVersion")}")
+
+	compileOnly("org.projectlombok:lombok")
+	annotationProcessor("org.projectlombok:lombok")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-}
-
-dependencyManagement {
-	imports {
-		mavenBom("org.springframework.ai:spring-ai-bom:${property("springAiVersion")}")
-	}
 }
 
 tasks.withType<Test> {
